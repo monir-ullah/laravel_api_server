@@ -21,14 +21,17 @@ class UserController extends Controller
     
         if ($validator->fails()) {
             return response()->json([
-                'message' => 'Validation error',
-                'errors' => $validator->errors(),
+                'message' => collect($validator->errors()) 
+                ->flatten() 
+                ->join(', '),
+                'errors' => $validator->errors()
+                
             ], 422);
         }
 
 
         try{
-
+           
             
             $user = new User();
             $user->username = $request->username;
