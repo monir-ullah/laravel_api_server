@@ -14,15 +14,19 @@ class Author extends Model
 
     // Fields that can be mass-assigned
     protected $fillable = [
-        'author_uid',
-        'name',
-        'image_url',
-        'designation',
-        'description',
-        'social_accounts',
-        'course_links',
-        'students',
-        'review',
+        'name', 
+        'image_url', 
+        'designation', 
+        'description', 
+        'students', 
+        'review', 
+        'social_accounts', 
+        'course_links', 
+        'extraInfo', 
+        'address', 
+        'phone', 
+        'website', 
+        'follow_us',
     ];
 
     // Cast JSON fields as arrays
@@ -31,6 +35,7 @@ class Author extends Model
         'course_links' => 'array',
         'students' => 'array', // Cast JSON to an array
         'review' => 'float',   // Ensure the review is stored as a float
+        'follow_us' => 'array',
 
     ];
 
